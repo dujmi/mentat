@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { login } from "./actions";
+import { signup } from "./actions";
 
 export default function LoginPage() {
   return (
@@ -43,20 +43,33 @@ export default function LoginPage() {
               className="border border-border rounded-md px-3 py-2 w-full focus:outline-1 focus:outline-brand"
             />
           </div>
+          <div className="flex flex-col gap-1">
+            <label htmlFor="email" className="text-sm text-mute">
+              FPL ID
+            </label>
+            <input
+              id="fplId"
+              name="fplId"
+              type="text"
+              placeholder="123456"
+              required
+              className="border border-border rounded-md px-3 py-2 w-full focus:outline-1 focus:outline-brand"
+            />
+          </div>
           <div className="flex flex-col w-full gap-3">
             <button
-              formAction={login}
+              formAction={signup}
               className="bg-brand text-background rounded-md px-4 py-2 cursor-pointer hover:bg-foreground"
             >
-              Log in
+              Sign up
             </button>
             <p className="text-sm text-mute">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <Link
-                href="/signup"
+                href="/login"
                 className="text-brand inline-flex items-center gap-1"
               >
-                Sign up
+                Log in
                 <svg
                   width="15"
                   height="15"

@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Spline_Sans_Mono } from "next/font/google";
+import { Epilogue } from "next/font/google";
 import "./globals.css";
+import Nav from ".././components/Nav";
+import Footer from "../components/Footer";
 
-const splineSansMono = Spline_Sans_Mono({
-  variable: "--font-spline-sans-mono",
-  subsets: ["latin"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
+const epilogue = Epilogue({
+  variable: "--font-epilogue",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: "Mentat",
-  description: "FPL Scheduler and Planner worthy of a Mentat",
+  description: "YOUR schedule planner, YOUR ratings, YOUR projections",
 };
 
 export default function RootLayout({
@@ -25,9 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${splineSansMono.variable} ${inter.variable} antialiased w-full min-h-screen flex flex-col justify-between pt-6 md:pt-7 pb-5`}
+        className={`${epilogue.variable} antialiased w-full min-h-screen flex flex-col gap-12 justify-between items-center font-sans`}
       >
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
